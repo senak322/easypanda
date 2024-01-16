@@ -3,18 +3,23 @@ import logo from "../images/panda.png";
 
 function Header() {
   return (
-    <header className="header">
-      <img className="header__logo" src={logo} alt="easypandamoney logo" />
-
-      <ul className="header__container">
-        <li className="header__contact">E-mail</li>
-        <li className="header__contact">Telegram</li>
-        <select>
-          <option value="someOption">RU</option>
-          <option value="otherOption">ENG</option>
-        </select>
-      </ul>
-    </header>
+    <>
+      <header className="header">
+        <h1>Easy Panda Money</h1>
+        <img className="header__logo" src={logo} alt="easypandamoney logo" />
+        <div className="header__container">
+          <ul className="header__list">
+            <li className="header__contact">email@email.com</li>
+            <li className="header__contact">Написать в Telegram</li>
+          </ul>
+          <select className="form-select" aria-label="Default select example">
+            <option value={"ru"}>RU</option>
+            <option value={"eng"}>ENG</option>
+          </select>
+        </div>
+      </header>
+      
+    </>
   );
 }
 
