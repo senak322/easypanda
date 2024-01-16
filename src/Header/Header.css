@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fdfdfd;
+    padding: 1rem;
+}
+
+.header__logo {
+    width: 10%;
+    height: 10%;
+    /* border-radius: 50%; */
+}
+
+.header__container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.header__contact {
+    padding: 1rem;
+}
