@@ -2,15 +2,16 @@ import Currency from "../Currency/Currency";
 import CurrencyConverter from "../CurrencyConverter/CurrencyConverter";
 
 function Main({
-  setCurrencyGive,
   currencyGive,
   currencyReceive,
   sumGive,
   changeGive,
   reverseCurrency,
-  setCurrencyReceive,
   sumReceive,
   changeReceive,
+  onCurrencyChangeGive,
+  onCurrencyChangeReceive,
+  banks
 }) {
   return (
     <main className="container">
@@ -18,20 +19,22 @@ function Main({
       <CurrencyConverter>
         <Currency
           title="You give"
-          onCurrencyChange={setCurrencyGive}
+          onCurrencyChange={onCurrencyChangeGive}
           selectedCurrency={currencyGive}
           disabledCurrency={currencyReceive}
           sum={sumGive}
           changeSum={changeGive}
+          banks={banks}
         />
         <button onClick={reverseCurrency}>Arrow</button>
         <Currency
           title="You receive"
-          onCurrencyChange={setCurrencyReceive}
+          onCurrencyChange={onCurrencyChangeReceive}
           selectedCurrency={currencyReceive}
           disabledCurrency={currencyGive}
           sum={sumReceive}
           changeSum={changeReceive}
+          banks={banks}
         />
       </CurrencyConverter>
     </main>
