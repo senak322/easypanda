@@ -1,22 +1,29 @@
-function Currency({ title, onCurrencyChange, selectedCurrency, disabledCurrency }) {
+function Currency({
+  title,
+  onCurrencyChange,
+  selectedCurrency,
+  disabledCurrency,
+}) {
   const allCurrencies = ["RUB", "CNY", "IDR", "GEL"];
 
   return (
     <div>
       <div>
         <h3>{title}</h3>
-        {allCurrencies.map((currency) => (
-          <label key={currency}>
-            <input
-              type="radio"
+        <select
+          value={selectedCurrency}
+          onChange={(e) => onCurrencyChange(e.target.value)}
+        >
+          {allCurrencies.map((currency) => (
+            <option
+              key={currency}
               value={currency}
-              checked={selectedCurrency === currency}
-              onChange={() => onCurrencyChange(currency)}
               disabled={disabledCurrency.includes(currency)}
-            />
-            {currency}
-          </label>
-        ))}
+            >
+              {currency}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );

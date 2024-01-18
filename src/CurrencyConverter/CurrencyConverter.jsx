@@ -6,6 +6,11 @@ function CurrencyConverter() {
   const [currencyGive, setCurrencyGive] = useState("RUB");
   const [currencyReceive, setCurrencyReceive] = useState("CNY");
 
+  function reverseCurrency() {
+    setCurrencyGive(currencyReceive);
+    setCurrencyReceive(currencyGive);
+  }
+
   return (
     <form>
       <Currency
@@ -13,7 +18,7 @@ function CurrencyConverter() {
         selectedCurrency={currencyGive}
         disabledCurrency={currencyReceive}
       />
-      <p>Arrow</p>
+      <button onClick={reverseCurrency}>Arrow</button>
       <Currency
         onCurrencyChange={setCurrencyReceive}
         selectedCurrency={currencyReceive}
