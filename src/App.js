@@ -66,9 +66,13 @@ function App() {
     setCurrencyReceive(value)
   }, [])
 
-  const onBankChange = useCallback(() => {
-    
-  })
+  const onGiveBankChange = useCallback((value) => {
+    console.log(value);
+  },[])
+
+  const onReceiveBankChange = useCallback((value) => {
+    console.log(value);
+  },[])
 
   return (
     <div className="App">
@@ -86,7 +90,8 @@ function App() {
         onCurrencyChangeGive={onCurrencyChangeGive}
         onCurrencyChangeReceive={onCurrencyChangeReceive}
         banks={banks}
-        onBankChange={onBankChange}
+        onGiveBankChange={onGiveBankChange}
+        onReceiveBankChange={onReceiveBankChange}
       />
     </div>
   );

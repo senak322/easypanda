@@ -29,6 +29,8 @@ function Currency({
       }
   }, [selectedCurrency, banks]);
 
+  
+
   useEffect(() => {
     const banks = chooseBanksForCountry();
     setCorrectBanks(banks);
@@ -39,7 +41,7 @@ function Currency({
       <div className="d-flex">
         <h3>{title}</h3>
         <select
-          value={selectedCurrency}
+        //   value={selectedCurrency}
           onChange={(e) => onCurrencyChange(e.target.value)}
         >
           {allCurrencies.map((currency) => (
