@@ -8,13 +8,15 @@ function App() {
   const [currencyReceive, setCurrencyReceive] = useState("CNY");
   const [sumGive, setSumGive] = useState(0);
   const [sumReceive, setSumReceive] = useState(0);
+  const [bankGive, setBankGive] = useState("")
+  const [bankReceive, setBankReceive] = useState("")
+
   const banks = {
     rub: ['sber', 'sbp', 'raif'],
     cny: ['wechat', 'cash'],
     gel: ['bog'],
     idr: ['mega']
   }
- 
 
   function reverseCurrency() {
     setCurrencyGive(currencyReceive);
@@ -64,6 +66,10 @@ function App() {
     setCurrencyReceive(value)
   }, [])
 
+  const onBankChange = useCallback(() => {
+    
+  })
+
   return (
     <div className="App">
       <Header />
@@ -80,6 +86,7 @@ function App() {
         onCurrencyChangeGive={onCurrencyChangeGive}
         onCurrencyChangeReceive={onCurrencyChangeReceive}
         banks={banks}
+        onBankChange={onBankChange}
       />
     </div>
   );

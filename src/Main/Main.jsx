@@ -11,7 +11,8 @@ function Main({
   changeReceive,
   onCurrencyChangeGive,
   onCurrencyChangeReceive,
-  banks
+  banks,
+  onBankChange
 }) {
   return (
     <main className="container">
@@ -25,6 +26,7 @@ function Main({
           sum={sumGive}
           changeSum={changeGive}
           banks={banks}
+          onBankChange={onBankChange}
         />
         <button onClick={reverseCurrency}>Arrow</button>
         <Currency
@@ -35,6 +37,7 @@ function Main({
           sum={sumReceive}
           changeSum={changeReceive}
           banks={banks}
+          onBankChange={onBankChange}
         />
       </CurrencyConverter>
     </main>
