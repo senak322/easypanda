@@ -39,7 +39,7 @@ function Currency({
 
   return (
     <div className="currency">
-      <div className="d-flex">
+      <div className="d-flex justify-content-between mb-3">
         {title === "You give" ? (
           <>
             <CurrencyTitle title={title} />
@@ -62,7 +62,7 @@ function Currency({
           </>
         )}
       </div>
-      <div>
+      <div className="d-flex justify-content-between">
         <input
           type="number"
           value={sum}
