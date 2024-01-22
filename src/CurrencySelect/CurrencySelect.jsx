@@ -1,4 +1,5 @@
 import "./CurrencySelect.css";
+import { Select } from "antd";
 
 function CurrencySelect({
   selectedCurrency,
@@ -7,21 +8,17 @@ function CurrencySelect({
   disabledCurrency,
 }) {
   return (
-    <select
+    <Select
       className="mx-3"
       value={selectedCurrency}
-      onChange={(e) => onCurrencyChange(e.target.value)}
-    >
-      {allCurrencies.map((currency) => (
-        <option
-          key={currency}
-          value={currency}
-          disabled={disabledCurrency.includes(currency)}
-        >
-          {currency}
-        </option>
-      ))}
-    </select>
+      onChange={onCurrencyChange}
+      options={allCurrencies.map((currency) => ({
+        disabled: currency === disabledCurrency,
+        key: currency,
+        label: currency,
+        value: currency,
+      }))}
+    ></Select>
   );
 }
 
