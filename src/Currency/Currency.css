@@ -1,3 +1,4 @@
 .currency {
     display: flex;
+    flex-direction: column;
 }

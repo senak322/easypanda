@@ -1,3 +1,4 @@
+import "./Main.css"
 import Currency from "../Currency/Currency";
 import CurrencyConverter from "../CurrencyConverter/CurrencyConverter";
 
@@ -12,10 +13,13 @@ function Main({
   onCurrencyChangeGive,
   onCurrencyChangeReceive,
   banks,
-  onBankChange
+  bankGive,
+  bankReceive,
+  onGiveBankChange,
+  onReceiveBankChange
 }) {
   return (
-    <main className="container">
+    <main className="main">
       <h1 className="text-center">Currency exchange</h1>
       <CurrencyConverter>
         <Currency
@@ -26,7 +30,8 @@ function Main({
           sum={sumGive}
           changeSum={changeGive}
           banks={banks}
-          onBankChange={onBankChange}
+          selectedBank={bankGive}
+          onBankChange={onGiveBankChange}
         />
         <button onClick={reverseCurrency}>Arrow</button>
         <Currency
@@ -37,7 +42,8 @@ function Main({
           sum={sumReceive}
           changeSum={changeReceive}
           banks={banks}
-          onBankChange={onBankChange}
+          selectedBank={bankReceive}
+          onBankChange={onReceiveBankChange}
         />
       </CurrencyConverter>
     </main>

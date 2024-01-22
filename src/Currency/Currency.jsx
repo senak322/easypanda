@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "./Currency.css";
+import CurrencyTitle from "../CurrencyTitle/CurrencyTitle";
+import CurrencySelect from "../CurrencySelect/CurrencySelect";
 
 function Currency({
   title,
@@ -9,7 +11,8 @@ function Currency({
   sum,
   changeSum,
   banks,
-  onBankChange
+  selectedBank,
+  onBankChange,
 }) {
   const [correctBanks, setCorrectBanks] = useState([]);
   const allCurrencies = ["RUB", "CNY", "IDR", "GEL"];
@@ -22,14 +25,12 @@ function Currency({
       return banks.cny;
     }
     if (selectedCurrency === "IDR") {
-        return banks.idr;
-      }
-      if (selectedCurrency === "GEL") {
-        return banks.gel;
-      }
+      return banks.idr;
+    }
+    if (selectedCurrency === "GEL") {
+      return banks.gel;
+    }
   }, [selectedCurrency, banks]);
-
-  
 
   useEffect(() => {
     const banks = chooseBanksForCountry();
@@ -39,21 +40,27 @@ function Currency({
   return (
     <div className="currency">
       <div className="d-flex">
-        <h3>{title}</h3>
-        <select
-        //   value={selectedCurrency}
-          onChange={(e) => onCurrencyChange(e.target.value)}
-        >
-          {allCurrencies.map((currency) => (
-            <option
-              key={currency}
-              value={currency}
-              disabled={disabledCurrency.includes(currency)}
-            >
-              {currency}
-            </option>
-          ))}
-        </select>
+        {title === "You give" ? (
+          <>
+            <CurrencyTitle title={title} />
+            <CurrencySelect
+              selectedCurrency={selectedCurrency}
+              onCurrencyChange={onCurrencyChange}
+              allCurrencies={allCurrencies}
+              disabledCurrency={disabledCurrency}
+            />
+          </>
+        ) : (
+          <>
+            <CurrencySelect
+              selectedCurrency={selectedCurrency}
+              onCurrencyChange={onCurrencyChange}
+              allCurrencies={allCurrencies}
+              disabledCurrency={disabledCurrency}
+            />
+            <CurrencyTitle title={title} />
+          </>
+        )}
       </div>
       <div>
         <input
@@ -62,7 +69,7 @@ function Currency({
           onChange={(e) => changeSum(e.target.value)}
         />
         <select
-        //   value={bank}
+          value={selectedBank}
           onChange={(e) => onBankChange(e.target.value)}
         >
           {correctBanks.map((bank) => (
