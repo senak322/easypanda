@@ -9,8 +9,8 @@ function Header() {
         <img className="header__logo" src={logo} alt="easypandamoney logo" />
         <div className="header__container">
           <ul className="header__list">
-            <li className="header__contact">email@email.com</li>
-            <li className="header__contact">Написать в Telegram</li>
+            <li className="header__contact fw-normal">email@email.com</li>
+            <li className="header__contact fw-normal">Написать в Telegram</li>
           </ul>
           <select className="form-select" aria-label="Default select example">
             <option value={"ru"}>RU</option>

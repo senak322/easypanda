@@ -3,3 +3,8 @@
     flex-direction: column;
     width: 40%;
 }
+
+.currency__container {
+    border-radius: 10px;
+    background-color: #e9e9e9;
+}

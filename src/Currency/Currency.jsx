@@ -62,7 +62,7 @@ function Currency({
           </>
         )}
       </div>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between p-3 currency__container">
         <input
           type="number"
           value={sum}

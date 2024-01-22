@@ -1,8 +1,14 @@
 import "./CurrencySelect.css";
 
-function CurrencySelect({selectedCurrency, onCurrencyChange, allCurrencies, disabledCurrency}) {
+function CurrencySelect({
+  selectedCurrency,
+  onCurrencyChange,
+  allCurrencies,
+  disabledCurrency,
+}) {
   return (
     <select
+      className="mx-3"
       value={selectedCurrency}
       onChange={(e) => onCurrencyChange(e.target.value)}
     >
