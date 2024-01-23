@@ -1,6 +1,7 @@
 import "./Main.css"
 import Currency from "../Currency/Currency";
 import CurrencyConverter from "../CurrencyConverter/CurrencyConverter";
+import { SwapOutlined } from "@ant-design/icons";
 
 function Main({
   currencyGive,
@@ -33,7 +34,7 @@ function Main({
           selectedBank={bankGive}
           onBankChange={onGiveBankChange}
         />
-        <button onClick={reverseCurrency}>Arrow</button>
+        <button onClick={reverseCurrency} className="main__arrow-btn"><SwapOutlined/></button>
         <Currency
           title="You receive"
           onCurrencyChange={onCurrencyChangeReceive}
