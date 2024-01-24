@@ -96,6 +96,8 @@ function App() {
         bankReceive={bankReceive}
         onGiveBankChange={onGiveBankChange}
         onReceiveBankChange={onReceiveBankChange}
+        setBankGive={setBankGive}
+        setBankReceive={setBankReceive}
       />
     </div>
   );

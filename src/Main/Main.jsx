@@ -17,7 +17,9 @@ function Main({
   bankGive,
   bankReceive,
   onGiveBankChange,
-  onReceiveBankChange
+  onReceiveBankChange,
+  setBankGive,
+  setBankReceive
 }) {
   return (
     <main className="main">
@@ -32,7 +34,8 @@ function Main({
           changeSum={changeGive}
           banks={banks}
           selectedBank={bankGive}
-          onBankChange={onGiveBankChange}
+          onBankChange={onGiveBankChange}setBank={setBankGive}
+          
         />
         <button onClick={reverseCurrency} className="main__arrow-btn" type="button"><SwapOutlined/></button>
         <Currency
@@ -45,6 +48,7 @@ function Main({
           banks={banks}
           selectedBank={bankReceive}
           onBankChange={onReceiveBankChange}
+          setBank={setBankReceive}
         />
       </CurrencyConverter>
     </main>

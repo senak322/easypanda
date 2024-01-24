@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./Currency.css";
 import CurrencyTitle from "../CurrencyTitle/CurrencyTitle";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
+import { Select } from "antd";
 
 function Currency({
   title,
@@ -13,6 +14,7 @@ function Currency({
   banks,
   selectedBank,
   onBankChange,
+  setBank,
 }) {
   const [correctBanks, setCorrectBanks] = useState([]);
   const allCurrencies = ["RUB", "CNY", "IDR", "GEL"];
@@ -32,10 +34,27 @@ function Currency({
     }
   }, [selectedCurrency, banks]);
 
+  const makeDefaultBank = useCallback(() => {
+    if (selectedCurrency === "RUB") {
+      return "sber";
+    } else if (selectedCurrency === "CNY") {
+      return "wechat";
+    } else if (selectedCurrency === "IDR") {
+      return "mega";
+    } else if (selectedCurrency === "GEL") {
+      return "bog";
+    }
+  }, [selectedCurrency]);
+
   useEffect(() => {
     const banks = chooseBanksForCountry();
     setCorrectBanks(banks);
-  }, [chooseBanksForCountry]);
+  }, [chooseBanksForCountry, makeDefaultBank]);
+
+  useEffect(() => {
+    const defaultBankForState = makeDefaultBank();
+    setBank(defaultBankForState);
+  }, [selectedCurrency, makeDefaultBank]);
 
   return (
     <div className="currency">
@@ -68,16 +87,15 @@ function Currency({
           value={sum}
           onChange={(e) => changeSum(e.target.value)}
         />
-        <select
+        <Select
           value={selectedBank}
-          onChange={(e) => onBankChange(e.target.value)}
-        >
-          {correctBanks.map((bank) => (
-            <option key={bank} value={bank}>
-              {bank}
-            </option>
-          ))}
-        </select>
+          onChange={onBankChange}
+          options={correctBanks.map((bank) => ({
+            key: bank,
+            value: bank,
+            label: bank,
+          }))}
+        ></Select>
       </div>
     </div>
   );
