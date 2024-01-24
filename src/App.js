@@ -42,7 +42,7 @@ function App() {
     (value) => {
       setSumGive(value);
       const rate = getExchangeRate(currencyGive, currencyReceive);
-      setSumReceive(value * 1.15 * rate);
+      setSumReceive(Math.floor(value * 1.15 * rate));
     },
     [currencyGive, currencyReceive, getExchangeRate]
   );
@@ -51,7 +51,7 @@ function App() {
     (value) => {
       setSumReceive(value);
       const rate = getExchangeRate(currencyReceive, currencyGive);
-      setSumGive(value * 1.15 * rate);
+      setSumGive(Math.floor(value * 1.15 * rate));
     },
     [currencyGive, currencyReceive, getExchangeRate]
   );

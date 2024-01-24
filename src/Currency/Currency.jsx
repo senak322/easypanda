@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./Currency.css";
 import CurrencyTitle from "../CurrencyTitle/CurrencyTitle";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
-import { Select } from "antd";
+import { Select, Input } from "antd";
 
 function Currency({
   title,
@@ -54,7 +54,7 @@ function Currency({
   useEffect(() => {
     const defaultBankForState = makeDefaultBank();
     setBank(defaultBankForState);
-  }, [selectedCurrency, makeDefaultBank]);
+  }, [selectedCurrency, makeDefaultBank, setBank]);
 
   return (
     <div className="currency">
@@ -82,10 +82,11 @@ function Currency({
         )}
       </div>
       <div className="d-flex justify-content-between p-3 currency__container">
-        <input
+        <Input
           type="number"
           value={sum}
           onChange={(e) => changeSum(e.target.value)}
+          prefix={selectedCurrency === "RUB" ? "₽" : selectedCurrency === "CNY" ? "¥" : selectedCurrency === "IDR" ? "Rp" : selectedCurrency === "GEL" ? "₾" : ""}
         />
         <Select
           value={selectedBank}
