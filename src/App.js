@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import './fonts/fonts.css';
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";

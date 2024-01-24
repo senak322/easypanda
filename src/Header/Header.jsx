@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <header className="header">
-        <h2>Easy Panda Money</h2>
+        <h2 className="header__title">Easy Panda Money</h2>
         <img className="header__logo" src={logo} alt="easypandamoney logo" />
         <div className="header__container">
           <ul className="header__list">
