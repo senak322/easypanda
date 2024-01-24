@@ -34,7 +34,7 @@ function Main({
           selectedBank={bankGive}
           onBankChange={onGiveBankChange}
         />
-        <button onClick={reverseCurrency} className="main__arrow-btn"><SwapOutlined/></button>
+        <button onClick={reverseCurrency} className="main__arrow-btn" type="button"><SwapOutlined/></button>
         <Currency
           title="You receive"
           onCurrencyChange={onCurrencyChangeReceive}

@@ -18,12 +18,12 @@ function App() {
     idr: ["mega"],
   };
 
-  function reverseCurrency() {
+  const reverseCurrency = useCallback(() => {
     setCurrencyGive(currencyReceive);
     setCurrencyReceive(currencyGive);
     setSumGive(0);
     setSumReceive(0);
-  }
+  }, [currencyReceive, currencyGive]);
 
   const getExchangeRate = useCallback((currencyFrom, currencyTo) => {
     // Здесь должна быть реализована логика получения обменного курса
@@ -68,12 +68,12 @@ function App() {
 
   const onGiveBankChange = useCallback((value) => {
     console.log(value);
-    setBankGive(value)
+    setBankGive(value);
   }, []);
 
   const onReceiveBankChange = useCallback((value) => {
     console.log(value);
-    setBankReceive(value)
+    setBankReceive(value);
   }, []);
 
   return (
