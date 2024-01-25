@@ -23,7 +23,7 @@ function Main({
 }) {
   return (
     <main className="main">
-      <h1 className="text-center">Currency exchange</h1>
+      <h1 className="main__header">Currency exchange</h1>
       <CurrencyConverter>
         <Currency
           title="You give"

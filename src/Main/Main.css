@@ -1,12 +1,36 @@
 .main {
-    margin: 2rem 2rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  margin: 2rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main__header {
+  margin: 0;
 }
 
 .main__arrow-btn {
-    align-self: baseline;
-    border: none;
-    border-radius: 50%;
+  align-self: baseline;
+  border: none;
+  border-radius: 50%;
 }
+
+@media screen and (max-width: 856px) {
+  .main__header {
+    font-weight: 400;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+    .main__header {
+      font-weight: 400;
+      font-size: 24px;
+    }
+
+    .main__arrow-btn {
+        align-self: center;
+       margin: 1rem 0;
+       transform: rotate(90deg);
+      }
+  }
