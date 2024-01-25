@@ -1,8 +1,13 @@
 import "./Header.css";
 import logo from "../images/panda.png";
 import { Select } from "antd";
+import { MailOutlined } from "@ant-design/icons";
+import { useWindowWidth } from "../hooks/useWindowWidth";
+import tg from "../images/tg.svg"
 
 function Header() {
+  const windowWidth = useWindowWidth();
+
   return (
     <>
       <header className="header">
@@ -12,8 +17,20 @@ function Header() {
         </div>
         <div className="header__container">
           <ul className="header__list">
-            <li className="header__contact">email@email.com</li>
-            <li className="header__contact">Написать в Telegram</li>
+            {windowWidth <= 700 ? (
+              <li className="header__contact">
+                <MailOutlined className="header__contact_tg-img"/>
+              </li>
+            ) : (
+              <li className="header__contact">email@email.com</li>
+            )}
+            {windowWidth <= 700 ? (
+              <li className="header__contact">
+                <img className="header__contact_tg-img" src={tg} alt="Написать в Telegram"/>
+              </li>
+            ) : (
+              <li className="header__contact">Написать в Telegram</li>
+            )}
           </ul>
           <Select
             defaultValue={"ru"}

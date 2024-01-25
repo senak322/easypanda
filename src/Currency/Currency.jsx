@@ -3,6 +3,7 @@ import "./Currency.css";
 import CurrencyTitle from "../CurrencyTitle/CurrencyTitle";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
 import { Select, Input } from "antd";
+import { useWindowWidth } from "../hooks/useWindowWidth";
 
 function Currency({
   title,
@@ -18,6 +19,7 @@ function Currency({
 }) {
   const [correctBanks, setCorrectBanks] = useState([]);
   const allCurrencies = ["RUB", "CNY", "IDR", "GEL"];
+  const windowWidth = useWindowWidth();
 
   const chooseBanksForCountry = useCallback(() => {
     if (selectedCurrency === "RUB") {
@@ -69,7 +71,7 @@ function Currency({
               disabledCurrency={disabledCurrency}
             />
           </>
-        ) : (
+        ) : windowWidth <= 700 ? (
           <>
             <CurrencySelect
               selectedCurrency={selectedCurrency}
@@ -79,6 +81,16 @@ function Currency({
             />
             <CurrencyTitle title={title} />
           </>
+        ) : (
+          <>
+            <CurrencyTitle title={title} />
+            <CurrencySelect
+              selectedCurrency={selectedCurrency}
+              onCurrencyChange={onCurrencyChange}
+              allCurrencies={allCurrencies}
+              disabledCurrency={disabledCurrency}
+            />
+          </>
         )}
       </div>
       <div className="d-flex justify-content-between p-3 currency__container">
@@ -86,7 +98,17 @@ function Currency({
           type="number"
           value={sum}
           onChange={(e) => changeSum(e.target.value)}
-          prefix={selectedCurrency === "RUB" ? "₽" : selectedCurrency === "CNY" ? "¥" : selectedCurrency === "IDR" ? "Rp" : selectedCurrency === "GEL" ? "₾" : ""}
+          prefix={
+            selectedCurrency === "RUB"
+              ? "₽"
+              : selectedCurrency === "CNY"
+              ? "¥"
+              : selectedCurrency === "IDR"
+              ? "Rp"
+              : selectedCurrency === "GEL"
+              ? "₾"
+              : ""
+          }
         />
         <Select
           value={selectedBank}
