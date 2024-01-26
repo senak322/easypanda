@@ -1,7 +1,8 @@
-import "./Main.css"
+import "./Main.css";
 import Currency from "../Currency/Currency";
 import CurrencyConverter from "../CurrencyConverter/CurrencyConverter";
 import { SwapOutlined } from "@ant-design/icons";
+import Rools from "../Rools/Rools";
 
 function Main({
   currencyGive,
@@ -19,7 +20,7 @@ function Main({
   onGiveBankChange,
   onReceiveBankChange,
   setBankGive,
-  setBankReceive
+  setBankReceive,
 }) {
   return (
     <main className="main">
@@ -34,10 +35,16 @@ function Main({
           changeSum={changeGive}
           banks={banks}
           selectedBank={bankGive}
-          onBankChange={onGiveBankChange}setBank={setBankGive}
-          
+          onBankChange={onGiveBankChange}
+          setBank={setBankGive}
         />
-        <button onClick={reverseCurrency} className="main__arrow-btn" type="button"><SwapOutlined/></button>
+        <button
+          onClick={reverseCurrency}
+          className="main__arrow-btn"
+          type="button"
+        >
+          <SwapOutlined />
+        </button>
         <Currency
           title="You receive"
           onCurrencyChange={onCurrencyChangeReceive}
@@ -51,6 +58,7 @@ function Main({
           setBank={setBankReceive}
         />
       </CurrencyConverter>
+      <Rools />
     </main>
   );
 }

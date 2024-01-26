@@ -3,7 +3,7 @@ import logo from "../images/panda.png";
 import { Select } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import { useWindowWidth } from "../hooks/useWindowWidth";
-import tg from "../images/tg.svg"
+import tg from "../images/tg.svg";
 
 function Header() {
   const windowWidth = useWindowWidth();
@@ -19,17 +19,33 @@ function Header() {
           <ul className="header__list">
             {windowWidth <= 700 ? (
               <li className="header__contact">
-                <MailOutlined className="header__contact_tg-img"/>
+                <MailOutlined className="header__contact_tg-img" />
               </li>
             ) : (
-              <li className="header__contact">email@email.com</li>
+              <li className="header__contact">easypanda247@gmail.com</li>
             )}
             {windowWidth <= 700 ? (
               <li className="header__contact">
-                <img className="header__contact_tg-img" src={tg} alt="Написать в Telegram"/>
+                <a
+                  className="header__link"
+                  href="tg://resolve?domain=easypandamoney/"
+                >
+                  <img
+                    className="header__contact_tg-img"
+                    src={tg}
+                    alt="Написать в Telegram"
+                  />
+                </a>
               </li>
             ) : (
-              <li className="header__contact">Написать в Telegram</li>
+              <li className="header__contact">
+                <a
+                  className="header__link"
+                  href="tg://resolve?domain=easypandamoney/"
+                >
+                  Написать в Telegram
+                </a>
+              </li>
             )}
           </ul>
           <Select

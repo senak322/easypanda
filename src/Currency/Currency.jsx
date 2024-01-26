@@ -71,7 +71,7 @@ function Currency({
               disabledCurrency={disabledCurrency}
             />
           </>
-        ) : windowWidth <= 700 ? (
+        ) : windowWidth >= 700 ? (
           <>
             <CurrencySelect
               selectedCurrency={selectedCurrency}

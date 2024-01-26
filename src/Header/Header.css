@@ -22,6 +22,8 @@
 .header__logo {
   margin-right: 0.5rem;
   max-width: 58px;
+  max-height: 49px;
+  align-self: center;
 }
 
 .header__container {
@@ -44,6 +46,16 @@
   align-items: center;
 }
 
+.header__link {
+  text-decoration: none;
+  color: black;
+}
+
+.header__contact:hover {
+  text-decoration: underline;
+  
+}
+
 .header__contact_tg-img {
   width: 20px;
   height: 20px;
@@ -61,5 +73,11 @@
 
   .header__contact {
     font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 1rem 1rem;
   }
 }
