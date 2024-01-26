@@ -19,10 +19,17 @@ function Header() {
           <ul className="header__list">
             {windowWidth <= 700 ? (
               <li className="header__contact">
-                <MailOutlined className="header__contact_tg-img" />
+                <a
+                  className="header__link"
+                  href="mailto:easypanda247@gmail.com"
+                >
+                  <MailOutlined className="header__contact_tg-img" />
+                </a>
               </li>
             ) : (
-              <li className="header__contact">easypanda247@gmail.com</li>
+              <a className="header__link" href="mailto:easypanda247@gmail.com">
+                <li className="header__contact">easypanda247@gmail.com</li>
+              </a>
             )}
             {windowWidth <= 700 ? (
               <li className="header__contact">

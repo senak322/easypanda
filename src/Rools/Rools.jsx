@@ -5,7 +5,7 @@ function Rools() {
   return (
     <section className="rools">
       <h3>Правила обмена</h3>
-      <ul>
+      <ul className="rools__container">
         <li>
           Укажите валюты обмена, сумму и удобный способ отправки и получения.
         </li>
@@ -19,7 +19,7 @@ function Rools() {
           подтверждения от Администратора
         </li>
       </ul>
-      <Button type="primary">Получить реквизиты</Button>
+      <Button type="primary" >Получить реквизиты</Button>
     </section>
   );
 }

@@ -1,8 +1,10 @@
 import { useState, useCallback } from "react";
-import './fonts/fonts.css';
+import { Routes, Route } from "react-router-dom";
+import "./fonts/fonts.css";
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
+import PaymentDetails from "./PaymentDetails/PaymentDetails";
 
 function App() {
   const [currencyGive, setCurrencyGive] = useState("RUB");
@@ -80,26 +82,34 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Main
-        setCurrencyGive={setCurrencyGive}
-        currencyGive={currencyGive}
-        currencyReceive={currencyReceive}
-        sumGive={sumGive}
-        sumReceive={sumReceive}
-        changeGive={changeGive}
-        changeReceive={changeReceive}
-        reverseCurrency={reverseCurrency}
-        setCurrencyReceive={setCurrencyReceive}
-        onCurrencyChangeGive={onCurrencyChangeGive}
-        onCurrencyChangeReceive={onCurrencyChangeReceive}
-        banks={banks}
-        bankGive={bankGive}
-        bankReceive={bankReceive}
-        onGiveBankChange={onGiveBankChange}
-        onReceiveBankChange={onReceiveBankChange}
-        setBankGive={setBankGive}
-        setBankReceive={setBankReceive}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main
+              setCurrencyGive={setCurrencyGive}
+              currencyGive={currencyGive}
+              currencyReceive={currencyReceive}
+              sumGive={sumGive}
+              sumReceive={sumReceive}
+              changeGive={changeGive}
+              changeReceive={changeReceive}
+              reverseCurrency={reverseCurrency}
+              setCurrencyReceive={setCurrencyReceive}
+              onCurrencyChangeGive={onCurrencyChangeGive}
+              onCurrencyChangeReceive={onCurrencyChangeReceive}
+              banks={banks}
+              bankGive={bankGive}
+              bankReceive={bankReceive}
+              onGiveBankChange={onGiveBankChange}
+              onReceiveBankChange={onReceiveBankChange}
+              setBankGive={setBankGive}
+              setBankReceive={setBankReceive}
+            />
+          }
+        />
+        <Route path="/payment-details" element={<PaymentDetails />} />
+      </Routes>
     </div>
   );
 }

@@ -49,6 +49,7 @@
 .header__link {
   text-decoration: none;
   color: black;
+  display: flex;
 }
 
 .header__contact:hover {
